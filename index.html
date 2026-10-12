@@ -16,46 +16,147 @@
     }
 
     * { box-sizing: border-box; }
-    body { margin: 0; background: #f8fafc; color: var(--text); font-family: Inter, Arial, sans-serif; line-height: 1.6; }
+
+    body {
+      margin: 0;
+      background: #f8fafc;
+      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
     a { color: inherit; text-decoration: none; }
     [hidden] { display: none !important; }
 
     /* Header */
-    header { background: white; border-bottom: 1px solid var(--border); }
-    .nav-container {
-      max-width: 1200px; margin: auto; padding: 1.25rem 2rem;
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
     }
-    .rbs-logo { display: inline-flex; align-items: center; min-width: 0; }
-    .rbs-logo img { display: block; height: 45px; width: auto; max-width: 45vw; object-fit: contain; }
-    .resume-btn { background: var(--text); color: white; padding: .6rem 1.25rem; border-radius: 50px; font-size: .9rem; font-weight: 600; white-space: nowrap; }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .rbs-logo {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .rbs-logo img {
+      display: block;
+      height: 45px;
+      width: auto;
+      max-width: 45vw;
+      object-fit: contain;
+    }
+
+    .resume-btn {
+      background: var(--text);
+      color: white;
+      padding: .6rem 1.25rem;
+      border-radius: 50px;
+      font-size: .9rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
     .resume-btn:hover { background: #1e293b; }
 
     /* Home */
-    .container { max-width: 1100px; margin: auto; padding: 4rem 2rem; }
-    .hero { display: grid; grid-template-columns: 260px 1fr; gap: 4rem; margin-bottom: 5rem; }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 4rem;
+      margin-bottom: 5rem;
+    }
+
     .profile { text-align: center; }
+
     .profile img {
-      width: 180px; height: 180px; border-radius: 50%;
-      object-fit: cover; margin-bottom: 1rem;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
       box-shadow: 0 10px 25px #00000018;
     }
+
     .profile h2 { font-size: 1.5rem; margin: 0; }
     .school { color: var(--red); font-weight: 600; }
     .profile p { margin: .25rem 0; font-size: .9rem; }
-    .badge { display: inline-block; background: #fce7f3; color: #9d174d; padding: .35rem .85rem; border-radius: 50px; font-size: .8rem; font-weight: 600; }
-    h1 { font-size: 2.75rem; line-height: 1.15; letter-spacing: -.03em; margin: 1.25rem 0; }
-    .intro { color: var(--muted); font-size: 1.05rem; margin-bottom: 2rem; }
-    .actions { display: flex; align-items: center; gap: 1.5rem; }
-    .email-btn { background: white; padding: .65rem 1.5rem; border: 1px solid var(--border); border-radius: 50px; font-weight: 600; }
+
+    .badge {
+      display: inline-block;
+      background: #fce7f3;
+      color: #9d174d;
+      padding: .35rem .85rem;
+      border-radius: 50px;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      line-height: 1.15;
+      letter-spacing: -.03em;
+      margin: 1.25rem 0;
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .email-btn {
+      background: white;
+      padding: .65rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-weight: 600;
+    }
+
     .email-btn:hover { background: #f1f5f9; }
     .linkedin { font-weight: 600; }
     .linkedin:hover { text-decoration: underline; }
-    .section-title { font-size: 1.75rem; margin: 0 0 .5rem; }
-    .section-subtitle { color: var(--muted); margin: 0 0 2.5rem; }
 
-    /* Moving clickable squares */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .section-title {
+      font-size: 1.75rem;
+      margin: 0 0 .5rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin: 0 0 2.5rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
     .card {
       display: block;
       min-height: 220px;
@@ -66,49 +167,196 @@
       box-shadow: 0 4px 6px #00000008;
       transition: transform .2s, box-shadow .2s;
     }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px #00000014; }
-    .card:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px #00000014;
+    }
+
+    .card:focus-visible {
+      outline: 3px solid var(--red);
+      outline-offset: 3px;
+    }
+
     .stripe { height: 8px; }
     .finance .stripe { background: #a7f3d0; }
     .analytics .stripe { background: #bae6fd; }
     .marketing .stripe { background: #fef08a; }
     .operations .stripe { background: #fbcfe8; }
+
     .card-body { padding: 1.5rem; }
     .card h3 { font-size: 1.1rem; margin: 0 0 .5rem; }
     .card p { color: var(--muted); font-size: .875rem; margin: 0; }
 
-    /* Galleries, project details, and résumé */
-    .panel { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
-    .back { display: inline-block; color: var(--red); font-weight: 700; margin-bottom: 1.5rem; }
+    /* Gallery/Projects */
+    .panel {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 2rem;
+      scroll-margin-top: 1rem;
+    }
+
+    .back {
+      display: inline-block;
+      color: var(--red);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
     .back:hover { text-decoration: underline; }
     .panel h2 { font-size: 1.75rem; margin: 0 0 .5rem; }
     .muted { color: var(--muted); }
-    .project-list { display: grid; gap: 1rem; margin-top: 1.5rem; }
+
+    .project-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
     .project-item {
-      display: block; padding: 1.4rem; border: 1px solid var(--border);
-      background: #f8fafc; border-radius: 12px;
+      display: block;
+      padding: 1.4rem;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      border-radius: 12px;
       transition: border-color .2s, transform .2s;
     }
-    .project-item:hover { border-color: var(--red); transform: translateY(-2px); }
+
+    .project-item:hover {
+      border-color: var(--red);
+      transform: translateY(-2px);
+    }
+
     .project-item h3 { margin: 0 0 .4rem; }
     .project-item p { color: var(--muted); margin: 0; }
+
     .field { margin-top: 1.5rem; }
     .field h3 { color: var(--red); margin: 0 0 .3rem; }
     .field p { color: var(--muted); margin: 0; white-space: pre-line; }
-    .previews img { display: block; width: 100%; max-width: 850px; height: auto; margin: 1.5rem auto; border: 1px solid var(--border); border-radius: 8px; }
-    .note { color: var(--muted); font-size: .8rem; margin-top: 1.5rem; }
+
+    .previews img {
+      display: block;
+      width: 100%;
+      max-width: 850px;
+      height: auto;
+      margin: 1.5rem auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: .8rem;
+      margin-top: 1.5rem;
+    }
+
     .resume-content { max-width: 850px; }
-    .resume-content h3 { border-bottom: 1px solid var(--border); color: var(--red); padding-bottom: .4rem; margin: 1.75rem 0 .5rem; }
+
+    .resume-content h3 {
+      border-bottom: 1px solid var(--border);
+      color: var(--red);
+      padding-bottom: .4rem;
+      margin: 1.75rem 0 .5rem;
+    }
+
     .resume-content p { margin: .3rem 0; }
+
+    /* Responsive layout */
+    html { scroll-behavior: smooth; }
+    img { max-width: 100%; }
+
+    .container, .hero, .projects-grid, .panel, .hero > * {
+      min-width: 0;
+    }
+
+    .panel, .card { overflow-wrap: anywhere; }
+
+    /* Tablets */
+    @media (max-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero {
+        grid-template-columns: 210px minmax(0, 1fr);
+        gap: 2rem;
+      }
+    }
 
     @media (max-width: 768px) {
       .nav-container { padding: 1rem; }
       .resume-btn { padding: .55rem .85rem; font-size: .8rem; }
       .container { padding: 2.5rem 1.25rem; }
-      .hero { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+        text-align: center;
+      }
+
       h1 { font-size: 2rem; }
       .actions { justify-content: center; }
       .panel { padding: 1.5rem; }
+    }
+
+    /* Mobile phones */
+    @media (max-width: 600px) {
+      .container { padding: 2rem 1rem; }
+
+      .nav-container {
+        padding: 1rem;
+        gap: .75rem;
+        flex-wrap: nowrap;
+      }
+
+      .rbs-logo { flex: 1; min-width: 0; }
+
+      .rbs-logo img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 40px;
+      }
+
+      .hero {
+        gap: 1.75rem;
+        margin-bottom: 3rem;
+      }
+
+      .profile img { width: 150px; height: 150px; }
+      h1 { font-size: clamp(1.85rem, 7vw, 2.3rem); }
+      .badge { max-width: 100%; font-size: .75rem; }
+      .intro { font-size: .96rem; }
+
+      .actions {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .card { min-height: 145px; }
+      .card-body { padding: 1.25rem; }
+      .section-title { font-size: 1.55rem; }
+      .section-subtitle { margin-bottom: 1.5rem; }
+
+      .panel {
+        padding: 1.25rem;
+        border-radius: 14px;
+      }
+
+      .project-item { padding: 1.1rem; }
+      .previews img { width: 100%; height: auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .card, .project-item { transition: none; }
     }
   </style>
 </head>
@@ -116,9 +364,16 @@
 
   <header>
     <div class="nav-container">
-      <a class="rbs-logo" href="https://www.business.rutgers.edu/" target="_blank" rel="noopener noreferrer" title="Visit Rutgers Business School">
-        <img src="https://www.business.rutgers.edu/themes/rbs_theme/img/icons/rbs-header-logo.png" alt="Rutgers Business School">
+      <a class="rbs-logo"
+         href="https://www.business.rutgers.edu/"
+         target="_blank"
+         rel="noopener noreferrer"
+         title="Visit Rutgers Business School">
+        <img
+          src="https://www.business.rutgers.edu/themes/rbs_theme/img/icons/rbs-header-logo.png"
+          alt="Rutgers Business School">
       </a>
+
       <a class="resume-btn" href="#resume-preview">View Resume</a>
     </div>
   </header>
@@ -132,14 +387,20 @@
           <img
             src="https://media.licdn.com/dms/image/v2/D4E03AQGLJdYGUwOs5Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727801318249?e=2147483647&amp;v=beta&amp;t=kz03vc1fd6TfGJjJdycPMtaVzuxezw_d4WJkIhG4jVk"
             alt="Daniel Alvia">
+
           <h2>Daniel Alvia</h2>
           <p class="school">Rutgers Business School - New Brunswick</p>
           <p>Class of 2027</p>
         </div>
 
         <div>
-          <span class="badge">Business Analytics and Information Technology Major | Concentration in Finance</span>
+          <span class="badge">
+            Business Analytics and Information Technology Major |
+            Concentration in Finance
+          </span>
+
           <h1>Multi-disciplinary business strategy, rooted at Rutgers.</h1>
+
           <p class="intro">
             Welcome! I'm Daniel, a Senior at Rutgers Business School - New Brunswick.
             I am leveraging the diverse curriculum at Rutgers along with my professional
@@ -147,15 +408,21 @@
             and analytics. My goal is to become a cross-functional business leader.
             Explore my projects below, built on core business pillars.
           </p>
+
           <div class="actions">
             <a class="email-btn" href="mailto:dalvia1259@gmail.com">Email Me</a>
-            <a class="linkedin" href="https://linkedin.com/in/danielalvia" target="_blank" rel="noopener noreferrer">My LinkedIn &rarr;</a>
+            <a class="linkedin"
+               href="https://linkedin.com/in/danielalvia"
+               target="_blank"
+               rel="noopener noreferrer">My LinkedIn &rarr;</a>
           </div>
         </div>
       </div>
 
+      <!-- Interactive Business Pillars -->
       <section id="projects">
         <h2 class="section-title">Core Business Pillars: My Work</h2>
+
         <p class="section-subtitle">
           Projects demonstrating my analytical approach, teamwork,
           and strategic thinking across different business functions.
@@ -197,7 +464,7 @@
       </section>
     </section>
 
-    <!-- One gallery used by all four pillars -->
+    <!-- Shared gallery for all four pillars -->
     <section id="gallery" class="panel" hidden>
       <a class="back" href="#home">&larr; Back to Portfolio</a>
       <h2 id="gallery-title"></h2>
@@ -205,35 +472,54 @@
       <div id="project-list" class="project-list"></div>
     </section>
 
-    <!-- One project viewer used by all projects -->
+    <!-- Individual project viewer -->
     <section id="project-view" class="panel" hidden>
-      <a id="project-back" class="back" href="#home">&larr; Back to Project List</a>
+      <a id="project-back" class="back" href="#home">
+        &larr; Back to Project List
+      </a>
+
       <h2 id="project-title"></h2>
       <p id="project-summary" class="muted"></p>
 
-      <div class="field"><h3>Tools Used</h3><p id="project-tools"></p></div>
-      <div class="field"><h3>My Approach</h3><p id="project-approach"></p></div>
-      <div class="field"><h3>Outcome</h3><p id="project-outcome"></p></div>
+      <div class="field">
+        <h3>Tools Used</h3>
+        <p id="project-tools"></p>
+      </div>
+
+      <div class="field">
+        <h3>My Approach</h3>
+        <p id="project-approach"></p>
+      </div>
+
+      <div class="field">
+        <h3>Outcome</h3>
+        <p id="project-outcome"></p>
+      </div>
 
       <div id="project-images" class="previews"></div>
+
       <p class="note">
         Only selected public previews appear here.
         Original working files are not hosted on this website.
       </p>
     </section>
 
-    <!-- Online résumé overview: no PDF is published here -->
+    <!-- Online resume overview -->
     <section id="resume" class="panel" hidden>
       <a class="back" href="#home">&larr; Back to Portfolio</a>
+
       <div class="resume-content">
         <h2>Resume Overview</h2>
         <p class="muted">A complete resume is available upon request.</p>
 
         <h3>Daniel Alvia</h3>
         <p>Rutgers Business School - New Brunswick</p>
+
         <p>
           <a href="mailto:dalvia1259@gmail.com">Email</a> |
-          <a href="https://linkedin.com/in/danielalvia" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://linkedin.com/in/danielalvia"
+             target="_blank"
+             rel="noopener noreferrer">LinkedIn</a>
         </p>
 
         <h3>Professional Summary</h3>
@@ -248,21 +534,42 @@
         <p>Business Analytics and Information Technology | Concentration in Finance | Class of 2027</p>
 
         <h3>Areas of Focus</h3>
-        <p>Financial Modeling, Business Analytics, Marketing Strategy, Operations, and Information Technology.</p>
+        <p>
+          Financial Modeling, Business Analytics, Marketing Strategy,
+          Operations, and Information Technology.
+        </p>
 
-        <!-- Add actual work experience and accomplishments here. -->
+        <!-- placeholder for resume contents -->
 
         <p style="margin-top: 2rem;">
-          <a class="email-btn" href="mailto:dalvia1259@gmail.com?subject=Resume%20Request">Request Full Resume</a>
+          <a class="email-btn"
+             href="mailto:dalvia1259@gmail.com?subject=Resume%20Request">
+            Request Full Resume
+          </a>
         </p>
       </div>
     </section>
   </main>
 
   <script>
-    // ADD PROJECTS HERE. Only put public-safe descriptions and preview image URLs here.
-    // Example: finance: [{ title: "Project", summary: "Summary", tools: "Excel",
-    //   approach: "What I did", outcome: "What I found", images: [] }]
+    /*
+      ADD YOUR PROJECTS HERE.
+
+      Use only public-safe descriptions and preview images.
+      Keep original Excel, Word, PDF, and PowerPoint files
+      in your private repository.
+
+      Example project:
+
+      {
+        title: "Project Name",
+        summary: "Brief project description",
+        tools: "Microsoft Excel",
+        approach: "What I analyzed and how",
+        outcome: "What I found or accomplished",
+        images: ["previews/example.png"]
+      }
+    */
 
     const projects = {
       finance: [],
@@ -272,24 +579,43 @@
     };
 
     const categories = {
-      finance: ["Finance & Valuation", "Financial modeling, valuation, and equity research projects."],
-      analytics: ["Business Analytics", "Data analysis, visualization, and business analytics projects."],
-      marketing: ["Marketing Strategy", "Market research, positioning, and marketing strategy projects."],
-      operations: ["Operations & Information Technology", "Operations management, process improvement, and information technology projects."]
+      finance: [
+        "Finance & Valuation",
+        "Financial modeling, valuation, and equity research projects."
+      ],
+      analytics: [
+        "Business Analytics",
+        "Data analysis, visualization, and business analytics projects."
+      ],
+      marketing: [
+        "Marketing Strategy",
+        "Market research, positioning, and marketing strategy projects."
+      ],
+      operations: [
+        "Operations & Information Technology",
+        "Operations management, process improvement, and information technology projects."
+      ]
     };
 
-    function show(section) {
+    // Show the correct website section
+    function show(section, keepHome = false) {
       ["home", "gallery", "project-view", "resume"].forEach(id => {
-        document.getElementById(id).hidden = id !== section;
+        document.getElementById(id).hidden =
+          id !== section && !(keepHome && id === "home");
       });
-      window.scrollTo(0, 0);
+
+      if (!keepHome) window.scrollTo(0, 0);
     }
 
+    // Open the selected pillar's project gallery
     function showGallery(category) {
       if (!categories[category]) return show("home");
 
-      document.getElementById("gallery-title").textContent = categories[category][0];
-      document.getElementById("gallery-description").textContent = categories[category][1];
+      document.getElementById("gallery-title").textContent =
+        categories[category][0];
+
+      document.getElementById("gallery-description").textContent =
+        categories[category][1];
 
       const list = document.getElementById("project-list");
       list.replaceChildren();
@@ -308,6 +634,7 @@
 
         link.className = "project-item";
         link.href = `#project/${category}/${index}`;
+
         title.textContent = item.title;
         summary.textContent = item.summary;
 
@@ -315,17 +642,30 @@
         list.appendChild(link);
       });
 
-show("gallery");
-document.getElementById("home").hidden = false;
-document.getElementById("projects").scrollIntoView({
-  behavior: "smooth",
-  block: "start"
-});
+      // Keep the homepage and four pillars visible above the gallery
+      show("gallery", true);
 
+      // Mobile: scroll to gallery; desktop: show pillars and gallery
+      const destination = window.innerWidth <= 600
+        ? "gallery"
+        : "projects";
+
+      const motion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth";
+
+      requestAnimationFrame(() => {
+        document.getElementById(destination).scrollIntoView({
+          behavior: motion,
+          block: "start"
+        });
+      });
     }
 
+    // Open an individual project
     function showProject(category, index) {
       const item = projects[category]?.[index];
+
       if (!item) return showGallery(category);
 
       const fields = {
@@ -337,30 +677,40 @@ document.getElementById("projects").scrollIntoView({
       };
 
       Object.entries(fields).forEach(([id, value]) => {
-        document.getElementById(id).textContent = value || "Not listed";
+        document.getElementById(id).textContent =
+          value || "Not listed";
       });
 
-      document.getElementById("project-back").href = `#${category}-work`;
+      document.getElementById("project-back").href =
+        `#${category}-work`;
 
       const container = document.getElementById("project-images");
       container.replaceChildren();
 
       (item.images || []).forEach((url, i) => {
         const image = document.createElement("img");
+
         image.src = url;
         image.alt = `${item.title} preview ${i + 1}`;
         image.loading = "lazy";
+
         container.appendChild(image);
       });
 
       show("project-view");
     }
 
+    // Handle navigation without creating additional HTML pages
     function navigate() {
       const path = decodeURIComponent(location.hash.slice(1));
 
-      if (path === "resume-preview") return show("resume");
-      if (path.endsWith("-work")) return showGallery(path.slice(0, -5));
+      if (path === "resume-preview") {
+        return show("resume");
+      }
+
+      if (path.endsWith("-work")) {
+        return showGallery(path.slice(0, -5));
+      }
 
       if (path.startsWith("project/")) {
         const [, category, index] = path.split("/");
@@ -373,5 +723,6 @@ document.getElementById("projects").scrollIntoView({
     window.addEventListener("hashchange", navigate);
     navigate();
   </script>
+
 </body>
 </html>
