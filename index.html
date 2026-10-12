@@ -2,885 +2,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Daniel's Portfolio | Rutgers Business School</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --primary-red: #a3192f;
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --bg-main: #f8fafc;
-      --bg-card: #ffffff;
-      --badge-bg: #fce7f3;
-      --badge-text: #9d174d;
-      --border-color: #e2e8f0;
+      --red: #a3192f;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f8fafc; color: var(--text); font-family: Inter, Arial, sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    [hidden] { display: none !important; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-main);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Navigation */
-    header {
-      background-color: #ffffff;
-      border-bottom: 1px solid var(--border-color);
-    }
-
+    /* Header */
+    header { background: white; border-bottom: 1px solid var(--border); }
     .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1.25rem 2rem;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
+      max-width: 1200px; margin: auto; padding: 1.25rem 2rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     }
+    .rbs-logo { display: inline-flex; align-items: center; min-width: 0; }
+    .rbs-logo img { display: block; height: 45px; width: auto; max-width: 45vw; object-fit: contain; }
+    .resume-btn { background: var(--text); color: white; padding: .6rem 1.25rem; border-radius: 50px; font-size: .9rem; font-weight: 600; white-space: nowrap; }
+    .resume-btn:hover { background: #1e293b; }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      min-width: 0;
-      font-weight: 700;
-      font-size: 1.1rem;
+    /* Home */
+    .container { max-width: 1100px; margin: auto; padding: 4rem 2rem; }
+    .hero { display: grid; grid-template-columns: 260px 1fr; gap: 4rem; margin-bottom: 5rem; }
+    .profile { text-align: center; }
+    .profile img {
+      width: 180px; height: 180px; border-radius: 50%;
+      object-fit: cover; margin-bottom: 1rem;
+      box-shadow: 0 10px 25px #00000018;
     }
+    .profile h2 { font-size: 1.5rem; margin: 0; }
+    .school { color: var(--red); font-weight: 600; }
+    .profile p { margin: .25rem 0; font-size: .9rem; }
+    .badge { display: inline-block; background: #fce7f3; color: #9d174d; padding: .35rem .85rem; border-radius: 50px; font-size: .8rem; font-weight: 600; }
+    h1 { font-size: 2.75rem; line-height: 1.15; letter-spacing: -.03em; margin: 1.25rem 0; }
+    .intro { color: var(--muted); font-size: 1.05rem; margin-bottom: 2rem; }
+    .actions { display: flex; align-items: center; gap: 1.5rem; }
+    .email-btn { background: white; padding: .65rem 1.5rem; border: 1px solid var(--border); border-radius: 50px; font-weight: 600; }
+    .email-btn:hover { background: #f1f5f9; }
+    .linkedin { font-weight: 600; }
+    .linkedin:hover { text-decoration: underline; }
+    .section-title { font-size: 1.75rem; margin: 0 0 .5rem; }
+    .section-subtitle { color: var(--muted); margin: 0 0 2.5rem; }
 
-    .rbs-logo-link {
-      display: inline-flex;
-      align-items: center;
-      min-width: 0;
-    }
-
-    .brand-logo {
-      display: block;
-      width: auto;
-      height: 45px;
-      max-width: 100%;
-      object-fit: contain;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-shrink: 0;
-      margin-left: auto;
-      gap: 2rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    .nav-links a:hover {
-      color: var(--text-main);
-    }
-
-    .btn-resume {
-      background-color: #0f172a;
-      color: #ffffff;
-      padding: 0.6rem 1.25rem;
-      border-radius: 9999px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      white-space: nowrap;
-      transition: background-color 0.2s ease;
-    }
-
-    .btn-resume:hover {
-      background-color: #1e293b;
-      color: #ffffff !important;
-    }
-
-    /* Main Container */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-    }
-
-    /* Hero Section */
-    .hero {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 4rem;
-      align-items: start;
-      margin-bottom: 5rem;
-    }
-
-    .profile-card {
-      text-align: center;
-    }
-
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1.25rem;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-    }
-
-    .profile-name {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--text-main);
-    }
-
-    .profile-school {
-      color: var(--primary-red);
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-top: 0.25rem;
-    }
-
-    .profile-class {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin-top: 0.25rem;
-    }
-
-    /* Hero Right Content */
-    .hero-badge {
-      display: inline-block;
-      background-color: var(--badge-bg);
-      color: var(--badge-text);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-title {
-      font-size: 2.75rem;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-description {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 2rem;
-      max-width: 650px;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .btn-secondary {
-      background-color: #ffffff;
-      color: var(--text-main);
-      border: 1px solid var(--border-color);
-      padding: 0.65rem 1.5rem;
-      border-radius: 9999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-      transition: all 0.2s ease;
-    }
-
-    .btn-secondary:hover {
-      background-color: #f1f5f9;
-    }
-
-    .link-arrow {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--text-main);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-
-    .link-arrow:hover {
-      text-decoration: underline;
-    }
-
-    /* Section Header */
-    .section-title {
-      font-size: 1.75rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-subtitle {
-      color: var(--text-muted);
-      font-size: 1rem;
-      max-width: 600px;
-      margin-bottom: 2.5rem;
-    }
-
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-
+    /* Moving clickable squares */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
     .card {
       display: block;
-      cursor: pointer;
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
+      min-height: 220px;
+      background: white;
+      border: 1px solid var(--border);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      min-height: 220px;
+      box-shadow: 0 4px 6px #00000008;
+      transition: transform .2s, box-shadow .2s;
     }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px #00000014; }
+    .card:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+    .stripe { height: 8px; }
+    .finance .stripe { background: #a7f3d0; }
+    .analytics .stripe { background: #bae6fd; }
+    .marketing .stripe { background: #fef08a; }
+    .operations .stripe { background: #fbcfe8; }
+    .card-body { padding: 1.5rem; }
+    .card h3 { font-size: 1.1rem; margin: 0 0 .5rem; }
+    .card p { color: var(--muted); font-size: .875rem; margin: 0; }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+    /* Galleries, project details, and résumé */
+    .panel { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
+    .back { display: inline-block; color: var(--red); font-weight: 700; margin-bottom: 1.5rem; }
+    .back:hover { text-decoration: underline; }
+    .panel h2 { font-size: 1.75rem; margin: 0 0 .5rem; }
+    .muted { color: var(--muted); }
+    .project-list { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    .project-item {
+      display: block; padding: 1.4rem; border: 1px solid var(--border);
+      background: #f8fafc; border-radius: 12px;
+      transition: border-color .2s, transform .2s;
     }
+    .project-item:hover { border-color: var(--red); transform: translateY(-2px); }
+    .project-item h3 { margin: 0 0 .4rem; }
+    .project-item p { color: var(--muted); margin: 0; }
+    .field { margin-top: 1.5rem; }
+    .field h3 { color: var(--red); margin: 0 0 .3rem; }
+    .field p { color: var(--muted); margin: 0; white-space: pre-line; }
+    .previews img { display: block; width: 100%; max-width: 850px; height: auto; margin: 1.5rem auto; border: 1px solid var(--border); border-radius: 8px; }
+    .note { color: var(--muted); font-size: .8rem; margin-top: 1.5rem; }
+    .resume-content { max-width: 850px; }
+    .resume-content h3 { border-bottom: 1px solid var(--border); color: var(--red); padding-bottom: .4rem; margin: 1.75rem 0 .5rem; }
+    .resume-content p { margin: .3rem 0; }
 
-    .card:focus-visible {
-      outline: 3px solid var(--primary-red);
-      outline-offset: 3px;
-    }
-
-    .card-header {
-      height: 8px;
-    }
-
-    .card-1 .card-header { background-color: #a7f3d0; }
-    .card-2 .card-header { background-color: #bae6fd; }
-    .card-3 .card-header { background-color: #fef08a; }
-    .card-4 .card-header { background-color: #fbcfe8; }
-
-    .card-body {
-      padding: 1.5rem;
-    }
-
-    .card-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .card-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-    }
-
-    /* Portfolio Galleries */
-    .portfolio-gallery {
-      display: none;
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 2rem;
-      margin-top: 2.5rem;
-      scroll-margin-top: 2rem;
-    }
-
-    .portfolio-gallery:target {
-      display: block;
-    }
-
-    .gallery-title {
-      font-size: 1.75rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-
-    .gallery-desc {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .back-link {
-      display: inline-block;
-      color: var(--primary-red);
-      font-weight: 700;
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Individual Project Listings */
-    .portfolio-list {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .portfolio-item {
-      display: block;
-      padding: 1.4rem;
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .portfolio-item:hover {
-      border-color: var(--primary-red);
-      transform: translateY(-2px);
-    }
-
-    .portfolio-item h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .portfolio-item p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .empty-message {
-      color: var(--text-muted);
-      background: #f8fafc;
-      padding: 1.5rem;
-      border-radius: 12px;
-    }
-
-    /* Individual Project Viewer */
-    .project-field {
-      margin-bottom: 1.5rem;
-    }
-
-    .project-field h3 {
-      color: var(--primary-red);
-      margin-bottom: 0.35rem;
-    }
-
-    .project-field p {
-      color: var(--text-muted);
-      white-space: pre-line;
-    }
-
-    .project-preview img {
-      display: block;
-      max-width: 850px;
-      width: 100%;
-      height: auto;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      margin: 1.5rem auto;
-    }
-
-    .preview-notice {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 1.5rem;
-    }
-
-    /* Resume Preview */
-    .resume-paper {
-      max-width: 850px;
-      background: #ffffff;
-      padding: 2rem;
-    }
-
-    .resume-paper h2 {
-      font-size: 1.7rem;
-    }
-
-    .resume-paper h3 {
-      color: var(--primary-red);
-      font-size: 1rem;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.4rem;
-      margin-top: 1.75rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .resume-paper p {
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-      }
-
-      .hero-title {
-        font-size: 2rem;
-      }
-
-      .hero-actions {
-        justify-content: center;
-      }
-
-      .section-subtitle {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .section-title {
-        text-align: center;
-      }
-
-      .nav-container {
-        flex-wrap: nowrap;
-        padding: 1rem;
-        gap: 0.75rem;
-      }
-
-      .rbs-logo-link img {
-        max-width: 49vw;
-        height: auto;
-        max-height: 45px;
-      }
-
-      .nav-links {
-        flex-wrap: nowrap;
-        gap: 0.75rem;
-      }
-
-      .btn-resume {
-        padding: 0.55rem 0.9rem;
-        font-size: 0.8rem;
-      }
-
-      .portfolio-gallery {
-        padding: 1.25rem;
-      }
+      .nav-container { padding: 1rem; }
+      .resume-btn { padding: .55rem .85rem; font-size: .8rem; }
+      .container { padding: 2.5rem 1.25rem; }
+      .hero { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+      h1 { font-size: 2rem; }
+      .actions { justify-content: center; }
+      .panel { padding: 1.5rem; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="nav-container">
-
-      <div class="brand">
-        <a
-          href="https://www.business.rutgers.edu/"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Visit Rutgers Business School"
-          class="rbs-logo-link"
-        >
-          <img
-            src="https://www.business.rutgers.edu/themes/rbs_theme/img/icons/rbs-header-logo.png"
-            alt="Rutgers Business School"
-            class="brand-logo"
-          />
-        </a>
-      </div>
-
-      <nav class="nav-links">
-        <a href="#resume-preview" class="btn-resume">
-          View Resume
-        </a>
-      </nav>
-
+      <a class="rbs-logo" href="https://www.business.rutgers.edu/" target="_blank" rel="noopener noreferrer" title="Visit Rutgers Business School">
+        <img src="https://www.business.rutgers.edu/themes/rbs_theme/img/icons/rbs-header-logo.png" alt="Rutgers Business School">
+      </a>
+      <a class="resume-btn" href="#resume-preview">View Resume</a>
     </div>
   </header>
 
   <main class="container">
 
-    <!-- ABOUT SECTION -->
-    <section class="hero" id="about">
-      <div class="profile-card">
-        <img
-          src="https://media.licdn.com/dms/image/v2/D4E03AQGLJdYGUwOs5Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727801318249?e=2147483647&amp;v=beta&amp;t=kz03vc1fd6TfGJjJdycPMtaVzuxezw_d4WJkIhG4jVk"
-          alt="Daniel Alvia"
-          class="profile-img"
-        />
-        <h2 class="profile-name">Daniel Alvia</h2>
-        <p class="profile-school">Rutgers Business School - New Brunswick</p>
-        <p class="profile-class">Class of '27</p>
-      </div>
+    <!-- Home page -->
+    <section id="home">
+      <div class="hero">
+        <div class="profile">
+          <img
+            src="https://media.licdn.com/dms/image/v2/D4E03AQGLJdYGUwOs5Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727801318249?e=2147483647&amp;v=beta&amp;t=kz03vc1fd6TfGJjJdycPMtaVzuxezw_d4WJkIhG4jVk"
+            alt="Daniel Alvia">
+          <h2>Daniel Alvia</h2>
+          <p class="school">Rutgers Business School - New Brunswick</p>
+          <p>Class of '27</p>
+        </div>
 
-      <div class="hero-content">
-        <span class="hero-badge">
-          Business Analytics and Information Technology Major
-        </span>
-
-        <h1 class="hero-title">
-          Multi-disciplinary business strategy, rooted at Rutgers.
-        </h1>
-
-        <p class="hero-description">
-          Welcome! I'm Daniel, a Senior at Rutgers Business School - New Brunswick.
-          I am leveraging the diverse curriculum at Rutgers along with my
-          professional experience to develop a versatile skill set in finance,
-          marketing, technology, and analytics. My goal is to become a
-          cross-functional business leader. Explore my projects below,
-          built on core business pillars.
-        </p>
-
-        <div class="hero-actions">
-          <a href="mailto:dalvia1259@gmail.com" class="btn-secondary">
-            Email Me
-          </a>
-
-          <a
-            href="https://linkedin.com/in/danielalvia"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link-arrow"
-          >
-            My LinkedIn &rarr;
-          </a>
+        <div>
+          <span class="badge">Business Analytics and Information Technology Major · Concentration in Finance</span>
+          <h1>Multi-disciplinary business strategy, rooted at Rutgers.</h1>
+          <p class="intro">
+            Welcome! I'm Daniel, a Senior at Rutgers Business School - New Brunswick.
+            I am leveraging the diverse curriculum at Rutgers along with my professional
+            experience to develop a versatile skill set in finance, marketing, technology,
+            and analytics. My goal is to become a cross-functional business leader.
+            Explore my projects below, built on core business pillars.
+          </p>
+          <div class="actions">
+            <a class="email-btn" href="mailto:dalvia1259@gmail.com">Email Me</a>
+            <a class="linkedin" href="https://linkedin.com/in/danielalvia" target="_blank" rel="noopener noreferrer">My LinkedIn &rarr;</a>
+          </div>
         </div>
       </div>
+
+      <section id="projects">
+        <h2 class="section-title">Core Business Pillars: My Work</h2>
+        <p class="section-subtitle">
+          Projects demonstrating my analytical approach, teamwork,
+          and strategic thinking across different business functions.
+        </p>
+
+        <div class="projects-grid">
+          <a class="card finance" href="#finance-work">
+            <div class="stripe"></div>
+            <div class="card-body">
+              <h3>Finance &amp; Valuation</h3>
+              <p>Financial modeling, Corporate Valuation, and Equity Research Analysis.</p>
+            </div>
+          </a>
+
+          <a class="card analytics" href="#analytics-work">
+            <div class="stripe"></div>
+            <div class="card-body">
+              <h3>Business Analytics</h3>
+              <p>Data Analysis and Decision-Making using Modern Analytics Tools.</p>
+            </div>
+          </a>
+
+          <a class="card marketing" href="#marketing-work">
+            <div class="stripe"></div>
+            <div class="card-body">
+              <h3>Marketing Strategy</h3>
+              <p>Market Research, Campaign Design, and Consumer Behavior Analysis.</p>
+            </div>
+          </a>
+
+          <a class="card operations" href="#operations-work">
+            <div class="stripe"></div>
+            <div class="card-body">
+              <h3>Operations &amp; Information Technology</h3>
+              <p>Process Optimization, Supply Chain Efficiency, and Digital Transformation.</p>
+            </div>
+          </a>
+        </div>
+      </section>
     </section>
 
-    <!-- BUSINESS PILLARS -->
-    <section id="projects">
-      <h2 class="section-title">Core Business Pillars: My Work</h2>
-
-      <p class="section-subtitle">
-        Projects demonstrating my analytical approach, teamwork, and
-        strategic thinking across different business functions.
-      </p>
-
-      <div class="projects-grid">
-
-        <!-- FINANCE -->
-        <a href="#finance-work" class="card card-1">
-          <div class="card-header"></div>
-          <div class="card-body">
-            <h3 class="card-title">Finance &amp; Valuation</h3>
-            <p class="card-desc">
-              Financial modeling, Corporate Valuation,
-              and Equity Research Analysis.
-            </p>
-          </div>
-        </a>
-
-        <!-- ANALYTICS -->
-        <a href="#analytics-work" class="card card-2">
-          <div class="card-header"></div>
-          <div class="card-body">
-            <h3 class="card-title">Business Analytics</h3>
-            <p class="card-desc">
-              Data Analysis and Decision-Making using Modern Analytics Tools.
-            </p>
-          </div>
-        </a>
-
-        <!-- MARKETING -->
-        <a href="#marketing-work" class="card card-3">
-          <div class="card-header"></div>
-          <div class="card-body">
-            <h3 class="card-title">Marketing Strategy</h3>
-            <p class="card-desc">
-              Market Research, Campaign Design,
-              and Consumer Behavior Analysis.
-            </p>
-          </div>
-        </a>
-
-        <!-- OPERATIONS -->
-        <a href="#operations-work" class="card card-4">
-          <div class="card-header"></div>
-          <div class="card-body">
-            <h3 class="card-title">Operations &amp; Information Technology</h3>
-            <p class="card-desc">
-              Process Optimization, Supply Chain Efficiency,
-              and Digital Transformation.
-            </p>
-          </div>
-        </a>
-
-      </div>
+    <!-- One gallery used by all four pillars -->
+    <section id="gallery" class="panel" hidden>
+      <a class="back" href="#home">&larr; Back to Portfolio</a>
+      <h2 id="gallery-title"></h2>
+      <p id="gallery-description" class="muted"></p>
+      <div id="project-list" class="project-list"></div>
     </section>
 
-    <!-- FINANCE GALLERY -->
-    <section id="finance-work" class="portfolio-gallery">
-      <a href="#projects" class="back-link">&larr; Back to Projects</a>
+    <!-- One project viewer used by all projects -->
+    <section id="project-view" class="panel" hidden>
+      <a id="project-back" class="back" href="#home">&larr; Back to Project List</a>
+      <h2 id="project-title"></h2>
+      <p id="project-summary" class="muted"></p>
 
-      <h2 class="gallery-title">Finance &amp; Valuation</h2>
+      <div class="field"><h3>Tools Used</h3><p id="project-tools"></p></div>
+      <div class="field"><h3>My Approach</h3><p id="project-approach"></p></div>
+      <div class="field"><h3>Outcome</h3><p id="project-outcome"></p></div>
 
-      <p class="gallery-desc">
-        Financial modeling, valuation, and equity research projects.
-        Select a project below to view its details.
-      </p>
-
-      <div id="finance-list" class="portfolio-list"></div>
-    </section>
-
-    <!-- ANALYTICS GALLERY -->
-    <section id="analytics-work" class="portfolio-gallery">
-      <a href="#projects" class="back-link">&larr; Back to Projects</a>
-
-      <h2 class="gallery-title">Business Analytics</h2>
-
-      <p class="gallery-desc">
-        Data analysis, visualization, and business analytics projects.
-        Select a project below to view its details.
-      </p>
-
-      <div id="analytics-list" class="portfolio-list"></div>
-    </section>
-
-    <!-- MARKETING GALLERY -->
-    <section id="marketing-work" class="portfolio-gallery">
-      <a href="#projects" class="back-link">&larr; Back to Projects</a>
-
-      <h2 class="gallery-title">Marketing Strategy</h2>
-
-      <p class="gallery-desc">
-        Market research, positioning, and marketing strategy projects.
-        Select a project below to view its details.
-      </p>
-
-      <div id="marketing-list" class="portfolio-list"></div>
-    </section>
-
-    <!-- OPERATIONS GALLERY -->
-    <section id="operations-work" class="portfolio-gallery">
-      <a href="#projects" class="back-link">&larr; Back to Projects</a>
-
-      <h2 class="gallery-title">Operations &amp; Information Technology</h2>
-
-      <p class="gallery-desc">
-        Operations management, process improvement,
-        and information technology projects.
-      </p>
-
-      <div id="operations-list" class="portfolio-list"></div>
-    </section>
-
-    <!-- INDIVIDUAL PROJECT VIEWER -->
-    <section id="project-preview" class="portfolio-gallery">
-
-      <a href="#projects" id="project-back" class="back-link">
-        &larr; Back to Project List
-      </a>
-
-      <h2 id="project-title" class="gallery-title"></h2>
-      <p id="project-summary" class="gallery-desc"></p>
-
-      <div class="project-field">
-        <h3>Tools Used</h3>
-        <p id="project-tools"></p>
-      </div>
-
-      <div class="project-field">
-        <h3>My Approach</h3>
-        <p id="project-approach"></p>
-      </div>
-
-      <div class="project-field">
-        <h3>Outcome</h3>
-        <p id="project-outcome"></p>
-      </div>
-
-      <div id="project-images" class="project-preview"></div>
-
-      <p class="preview-notice">
-        This portfolio displays selected public previews.
+      <div id="project-images" class="previews"></div>
+      <p class="note">
+        Only selected public previews appear here.
         Original working files are not hosted on this website.
       </p>
     </section>
 
-    <!-- RESUME VIEWER -->
-    <section id="resume-preview" class="portfolio-gallery">
-      <a href="#about" class="back-link">&larr; Back to Portfolio</a>
+    <!-- Online résumé overview: no PDF is published here -->
+    <section id="resume" class="panel" hidden>
+      <a class="back" href="#home">&larr; Back to Portfolio</a>
+      <div class="resume-content">
+        <h2>Resume Overview</h2>
+        <p class="muted">A complete resume is available upon request.</p>
 
-      <h2 class="gallery-title">Resume Overview</h2>
-
-      <p class="gallery-desc">
-        Professional background and education.
-        A complete resume is available upon request.
-      </p>
-
-      <div class="resume-paper">
-        <h2>Daniel Alvia</h2>
-
+        <h3>Daniel Alvia</h3>
         <p>Rutgers Business School - New Brunswick</p>
         <p>
           <a href="mailto:dalvia1259@gmail.com">Email</a> |
-          <a href="https://linkedin.com/in/danielalvia"
-             target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://linkedin.com/in/danielalvia" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </p>
 
         <h3>Professional Summary</h3>
         <p>
-          Business Analytics and Information Technology student
-          developing skills in finance, marketing, analytics,
-          and operations, with an interest in cross-functional
-          business leadership.
+          Business Analytics and Information Technology student developing skills
+          in finance, marketing, analytics, and operations, with an interest in
+          cross-functional business leadership.
         </p>
 
         <h3>Education</h3>
         <p><strong>Rutgers Business School - New Brunswick</strong></p>
-        <p>Business Analytics and Information Technology</p>
-        <p>Expected Graduation: 2027</p>
+        <p>Business Analytics and Information Technology | Concentration in Finance | Class of 2027</p>
 
         <h3>Areas of Focus</h3>
-        <p>
-          Financial Modeling, Business Analytics, Marketing Strategy,
-          Operations, and Information Technology.
+        <p>Financial Modeling, Business Analytics, Marketing Strategy, Operations, and Information Technology.</p>
+
+        <!-- Add actual work experience and accomplishments here. -->
+
+        <p style="margin-top: 2rem;">
+          <a class="email-btn" href="mailto:dalvia1259@gmail.com?subject=Resume%20Request">Request Full Resume</a>
         </p>
-
-        <!-- ADD YOUR ACTUAL RESUME EXPERIENCE HERE -->
-
-        <div style="margin-top:2rem;">
-          <a
-            href="mailto:dalvia1259@gmail.com?subject=Resume%20Request"
-            class="btn-secondary"
-          >
-            Request Full Resume
-          </a>
-        </div>
       </div>
     </section>
-
   </main>
 
   <script>
-    /*
-      ADD YOUR PORTFOLIO PROJECTS HERE.
+    // ADD PROJECTS HERE. Only put public-safe descriptions and preview image URLs here.
+    // Example: finance: [{ title: "Project", summary: "Summary", tools: "Excel",
+    //   approach: "What I did", outcome: "What I found", images: [] }]
 
-      Each pillar has its own list.
-
-      To add a real project, copy this example
-      inside the appropriate list and replace the text:
-
-      {
-        title: "Project Name",
-        summary: "What the project was about",
-        tools: "Excel, Python, or other tools",
-        approach: "What you did in this project",
-        outcome: "What you accomplished or learned",
-        images: []
-      }
-
-      Images can contain URLs to public,
-      watermarked preview images.
-
-      Keep private documents and original
-      working files out of this public website.
-    */
-
-    const portfolioProjects = {
-
+    const projects = {
       finance: [],
-
       analytics: [],
-
       marketing: [],
-
       operations: []
-
     };
 
-    const categoryNames = [
-      "finance",
-      "analytics",
-      "marketing",
-      "operations"
-    ];
+    const categories = {
+      finance: ["Finance & Valuation", "Financial modeling, valuation, and equity research projects."],
+      analytics: ["Business Analytics", "Data analysis, visualization, and business analytics projects."],
+      marketing: ["Marketing Strategy", "Market research, positioning, and marketing strategy projects."],
+      operations: ["Operations & Information Technology", "Operations management, process improvement, and information technology projects."]
+    };
 
-    // Generate project lists automatically
-    categoryNames.forEach(function(category) {
-      const list = document.getElementById(category + "-list");
-      const items = portfolioProjects[category];
+    function show(section) {
+      ["home", "gallery", "project-view", "resume"].forEach(id => {
+        document.getElementById(id).hidden = id !== section;
+      });
+      window.scrollTo(0, 0);
+    }
 
-      if (items.length === 0) {
-        const message = document.createElement("p");
-        message.className = "empty-message";
-        message.textContent = "Selected projects will appear here soon.";
-        list.appendChild(message);
+    function showGallery(category) {
+      if (!categories[category]) return show("home");
+
+      document.getElementById("gallery-title").textContent = categories[category][0];
+      document.getElementById("gallery-description").textContent = categories[category][1];
+
+      const list = document.getElementById("project-list");
+      list.replaceChildren();
+
+      if (!projects[category].length) {
+        const empty = document.createElement("p");
+        empty.className = "muted";
+        empty.textContent = "Selected projects will appear here soon.";
+        list.appendChild(empty);
       }
 
-      items.forEach(function(project, index) {
+      projects[category].forEach((item, index) => {
         const link = document.createElement("a");
-
-        link.href = "#project-preview";
-        link.className = "portfolio-item";
-
         const title = document.createElement("h3");
-        title.textContent = project.title;
+        const summary = document.createElement("p");
 
-        const description = document.createElement("p");
-        description.textContent = project.summary;
+        link.className = "project-item";
+        link.href = `#project/${category}/${index}`;
+        title.textContent = item.title;
+        summary.textContent = item.summary;
 
-        link.appendChild(title);
-        link.appendChild(description);
-
-        link.addEventListener("click", function() {
-          openProject(category, index);
-        });
-
+        link.append(title, summary);
         list.appendChild(link);
       });
-    });
 
-    // Display selected project
-    function openProject(category, index) {
-      const project = portfolioProjects[category][index];
+show("gallery");
+document.getElementById("home").hidden = false;
+document.getElementById("projects").scrollIntoView({
+  behavior: "smooth",
+  block: "start"
+});
 
-      document.getElementById("project-title").textContent =
-        project.title;
-
-      document.getElementById("project-summary").textContent =
-        project.summary;
-
-      document.getElementById("project-tools").textContent =
-        project.tools || "Not listed";
-
-      document.getElementById("project-approach").textContent =
-        project.approach || "Not listed";
-
-      document.getElementById("project-outcome").textContent =
-        project.outcome || "Not listed";
-
-      document.getElementById("project-back").href =
-        "#" + category + "-work";
-
-      const imagesContainer =
-        document.getElementById("project-images");
-
-      imagesContainer.replaceChildren();
-
-      (project.images || []).forEach(function(url, index) {
-        const image = document.createElement("img");
-
-        image.src = url;
-        image.alt = project.title + " preview " + (index + 1);
-        image.loading = "lazy";
-
-        imagesContainer.appendChild(image);
-      });
     }
-  </script>
 
+    function showProject(category, index) {
+      const item = projects[category]?.[index];
+      if (!item) return showGallery(category);
+
+      const fields = {
+        "project-title": item.title,
+        "project-summary": item.summary,
+        "project-tools": item.tools,
+        "project-approach": item.approach,
+        "project-outcome": item.outcome
+      };
+
+      Object.entries(fields).forEach(([id, value]) => {
+        document.getElementById(id).textContent = value || "Not listed";
+      });
+
+      document.getElementById("project-back").href = `#${category}-work`;
+
+      const container = document.getElementById("project-images");
+      container.replaceChildren();
+
+      (item.images || []).forEach((url, i) => {
+        const image = document.createElement("img");
+        image.src = url;
+        image.alt = `${item.title} preview ${i + 1}`;
+        image.loading = "lazy";
+        container.appendChild(image);
+      });
+
+      show("project-view");
+    }
+
+    function navigate() {
+      const path = decodeURIComponent(location.hash.slice(1));
+
+      if (path === "resume-preview") return show("resume");
+      if (path.endsWith("-work")) return showGallery(path.slice(0, -5));
+
+      if (path.startsWith("project/")) {
+        const [, category, index] = path.split("/");
+        return showProject(category, Number(index));
+      }
+
+      show("home");
+    }
+
+    window.addEventListener("hashchange", navigate);
+    navigate();
+  </script>
 </body>
 </html>
