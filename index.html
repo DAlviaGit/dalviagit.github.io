@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-<!-- Daniel Alvia Portfolio -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -52,27 +51,42 @@
       margin: 0 auto;
       padding: 1.25rem 2rem;
       display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
       justify-content: space-between;
       align-items: center;
+      gap: 1rem;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      min-width: 0;
       font-weight: 700;
       font-size: 1.1rem;
     }
 
+    .rbs-logo-link {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+    }
+
     .brand-logo {
-      color: var(--primary-red);
-      font-weight: 800;
-      font-size: 1.25rem;
+      display: block;
+      width: auto;
+      height: 45px;
+      max-width: 100%;
+      object-fit: contain;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
+      flex-shrink: 0;
+      margin-left: auto;
       gap: 2rem;
       font-size: 0.95rem;
       font-weight: 500;
@@ -90,6 +104,7 @@
       border-radius: 9999px;
       font-weight: 600;
       font-size: 0.9rem;
+      white-space: nowrap;
       transition: background-color 0.2s ease;
     }
 
@@ -435,13 +450,25 @@
       }
 
       .nav-container {
-        flex-wrap: wrap;
-        gap: 1rem;
+        flex-wrap: nowrap;
+        padding: 1rem;
+        gap: 0.75rem;
+      }
+
+      .rbs-logo-link img {
+        max-width: 49vw;
+        height: auto;
+        max-height: 45px;
       }
 
       .nav-links {
-        gap: 1rem;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        gap: 0.75rem;
+      }
+
+      .btn-resume {
+        padding: 0.55rem 0.9rem;
+        font-size: 0.8rem;
       }
 
       .portfolio-gallery {
@@ -453,26 +480,32 @@
 
 <body>
 
+  <!-- HEADER -->
   <header>
-   
-<div class="brand">
-  <a href="https://www.business.rutgers.edu/"
-     target="_blank"
-     rel="noopener noreferrer"
-     title="Visit Rutgers Business School">
-    <img
-      src="https://www.business.rutgers.edu/themes/rbs_theme/img/icons/rbs-header-logo.png"
-      alt="Rutgers Business School"
-      class="brand-logo"
-      style="height:45px;width:auto;"
-    />
-  </a>
-</div>
+    <div class="nav-container">
+
+      <div class="brand">
+        <a
+          href="https://www.business.rutgers.edu/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Visit Rutgers Business School"
+          class="rbs-logo-link"
+        >
+          <img
+            src="https://www.business.rutgers.edu/themes/rbs_theme/img/icons/rbs-header-logo.png"
+            alt="Rutgers Business School"
+            class="brand-logo"
+          />
+        </a>
+      </div>
 
       <nav class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#resume-preview" class="btn-resume">View Resume</a>
+        <a href="#resume-preview" class="btn-resume">
+          View Resume
+        </a>
       </nav>
+
     </div>
   </header>
 
@@ -494,6 +527,7 @@
       <div class="hero-content">
         <span class="hero-badge">
           Business Analytics and Information Technology Major
+          Concentration in Finance
         </span>
 
         <h1 class="hero-title">
@@ -680,11 +714,11 @@
     <section id="resume-preview" class="portfolio-gallery">
       <a href="#about" class="back-link">&larr; Back to Portfolio</a>
 
-      <h2 class="gallery-title">Résumé Overview</h2>
+      <h2 class="gallery-title">Resume Overview</h2>
 
       <p class="gallery-desc">
         Professional background and education.
-        A complete résumé is available upon request.
+        A complete resume is available upon request.
       </p>
 
       <div class="resume-paper">
@@ -723,7 +757,7 @@
             href="mailto:dalvia1259@gmail.com?subject=Resume%20Request"
             class="btn-secondary"
           >
-            Request Full Résumé
+            Request Full Resume
           </a>
         </div>
       </div>
@@ -738,8 +772,7 @@
       Each pillar has its own list.
 
       To add a real project, copy this example
-      inside the appropriate list, remove the
-      // comment marks, and replace the text:
+      inside the appropriate list and replace the text:
 
       {
         title: "Project Name",
