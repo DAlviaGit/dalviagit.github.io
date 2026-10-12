@@ -1,13 +1,16 @@
+
 <!DOCTYPE html>
-<!--test-->
+<!-- Daniel Alvia Portfolio -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daniel's Portfolio | Rutgers Business School</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary-red: #a3192f;
@@ -92,6 +95,7 @@
 
     .btn-resume:hover {
       background-color: #1e293b;
+      color: #ffffff !important;
     }
 
     /* Main Container */
@@ -228,6 +232,8 @@
     }
 
     .card {
+      display: block;
+      cursor: pointer;
       background-color: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 16px;
@@ -240,6 +246,11 @@
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+    }
+
+    .card:focus-visible {
+      outline: 3px solid var(--primary-red);
+      outline-offset: 3px;
     }
 
     .card-header {
@@ -264,6 +275,137 @@
     .card-desc {
       font-size: 0.875rem;
       color: var(--text-muted);
+    }
+
+    /* Portfolio Galleries */
+    .portfolio-gallery {
+      display: none;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 2.5rem;
+      scroll-margin-top: 2rem;
+    }
+
+    .portfolio-gallery:target {
+      display: block;
+    }
+
+    .gallery-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-desc {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: var(--primary-red);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Individual Project Listings */
+    .portfolio-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .portfolio-item {
+      display: block;
+      padding: 1.4rem;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .portfolio-item:hover {
+      border-color: var(--primary-red);
+      transform: translateY(-2px);
+    }
+
+    .portfolio-item h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .portfolio-item p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .empty-message {
+      color: var(--text-muted);
+      background: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+
+    /* Individual Project Viewer */
+    .project-field {
+      margin-bottom: 1.5rem;
+    }
+
+    .project-field h3 {
+      color: var(--primary-red);
+      margin-bottom: 0.35rem;
+    }
+
+    .project-field p {
+      color: var(--text-muted);
+      white-space: pre-line;
+    }
+
+    .project-preview img {
+      display: block;
+      max-width: 850px;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin: 1.5rem auto;
+    }
+
+    .preview-notice {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 1.5rem;
+    }
+
+    /* Resume Preview */
+    .resume-paper {
+      max-width: 850px;
+      background: #ffffff;
+      padding: 2rem;
+    }
+
+    .resume-paper h2 {
+      font-size: 1.7rem;
+    }
+
+    .resume-paper h3 {
+      color: var(--primary-red);
+      font-size: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .resume-paper p {
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
     }
 
     /* Responsive */
@@ -291,90 +433,417 @@
       .section-title {
         text-align: center;
       }
+
+      .nav-container {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .portfolio-gallery {
+        padding: 1.25rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <header>
     <div class="nav-container">
       <div class="brand">
-        <img src="https://www.business.rutgers.edu/themes/rbs_theme/img/icons/rbs-header-logo.png" alt="Rutgers Logo" class="brand-logo" style="height: 45px; width: auto;" />
-    <!--placeholder-->
+        <img
+          src="https://www.business.rutgers.edu/themes/rbs_theme/img/icons/rbs-header-logo.png"
+          alt="Rutgers Logo"
+          class="brand-logo"
+          style="height:45px;width:auto;"
+        />
       </div>
+
       <nav class="nav-links">
-        <a href="#space">   </a>
         <a href="#projects">Projects</a>
-        <a href="resume.pdf" class="btn-resume" download>Download Resume</a>
+        <a href="#resume-preview" class="btn-resume">View Résumé</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    
+
+    <!-- ABOUT SECTION -->
     <section class="hero" id="about">
       <div class="profile-card">
-        <img src="https://media.licdn.com/dms/image/v2/D4E03AQGLJdYGUwOs5Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727801318249?e=2147483647&v=beta&t=kz03vc1fd6TfGJjJdycPMtaVzuxezw_d4WJkIhG4jVk" alt="Kevin" class="profile-img" />
+        <img
+          src="https://media.licdn.com/dms/image/v2/D4E03AQGLJdYGUwOs5Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727801318249?e=2147483647&amp;v=beta&amp;t=kz03vc1fd6TfGJjJdycPMtaVzuxezw_d4WJkIhG4jVk"
+          alt="Daniel Alvia"
+          class="profile-img"
+        />
         <h2 class="profile-name">Daniel Alvia</h2>
         <p class="profile-school">Rutgers Business School - New Brunswick</p>
-        <p class="profile-class">Class of '27 </p>
+        <p class="profile-class">Class of '27</p>
       </div>
 
       <div class="hero-content">
-        <span class="hero-badge">Business Analytics and Information Technology Major</span>
-        <h1 class="hero-title">Multi-disciplinary business strategy, rooted at Rutgers.</h1>
+        <span class="hero-badge">
+          Business Analytics and Information Technology Major
+        </span>
+
+        <h1 class="hero-title">
+          Multi-disciplinary business strategy, rooted at Rutgers.
+        </h1>
+
         <p class="hero-description">
-          Welcome! I'm Daniel, a Senior at Rutgers Business School - New Brunswick. I am leveraging the diverse curriculum at Rutgers along with my professional experience to develop a versatile skill set in finance, marketing, technology, and analytics. My goal is to become a cross-functional business leader. Explore my projects below, built on core business pillars.
+          Welcome! I'm Daniel, a Senior at Rutgers Business School - New Brunswick.
+          I am leveraging the diverse curriculum at Rutgers along with my
+          professional experience to develop a versatile skill set in finance,
+          marketing, technology, and analytics. My goal is to become a
+          cross-functional business leader. Explore my projects below,
+          built on core business pillars.
         </p>
+
         <div class="hero-actions">
-          <a href="mailto:dalvia1259@gmail.com" class="btn-secondary">Email Me</a>
-          <a href="https://linkedin.com/in/danielalvia" target="_blank" class="link-arrow">My LinkedIn &rarr;</a>
+          <a href="mailto:dalvia1259@gmail.com" class="btn-secondary">
+            Email Me
+          </a>
+
+          <a
+            href="https://linkedin.com/in/danielalvia"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-arrow"
+          >
+            My LinkedIn &rarr;
+          </a>
         </div>
       </div>
     </section>
 
+    <!-- BUSINESS PILLARS -->
     <section id="projects">
       <h2 class="section-title">Core Business Pillars: My Work</h2>
+
       <p class="section-subtitle">
-        Projects demonstrating my analytical approach, teamwork, and strategic thinking across different business functions.
+        Projects demonstrating my analytical approach, teamwork, and
+        strategic thinking across different business functions.
       </p>
 
       <div class="projects-grid">
-        <div class="card card-1">
+
+        <!-- FINANCE -->
+        <a href="#finance-work" class="card card-1">
           <div class="card-header"></div>
           <div class="card-body">
-            <h3 class="card-title">Finance & Valuation</h3>
-            <p class="card-desc">Financial modeling, Corporate Valuation, and Equity Research Analysis.</p>
+            <h3 class="card-title">Finance &amp; Valuation</h3>
+            <p class="card-desc">
+              Financial modeling, Corporate Valuation,
+              and Equity Research Analysis.
+            </p>
           </div>
-        </div>
+        </a>
 
-        <div class="card card-2">
+        <!-- ANALYTICS -->
+        <a href="#analytics-work" class="card card-2">
           <div class="card-header"></div>
           <div class="card-body">
             <h3 class="card-title">Business Analytics</h3>
-            <p class="card-desc">Data Analysis and Decision-Making using Modern Analytics Tools.</p>
+            <p class="card-desc">
+              Data Analysis and Decision-Making using Modern Analytics Tools.
+            </p>
           </div>
-        </div>
+        </a>
 
-        <div class="card card-3">
+        <!-- MARKETING -->
+        <a href="#marketing-work" class="card card-3">
           <div class="card-header"></div>
           <div class="card-body">
             <h3 class="card-title">Marketing Strategy</h3>
-            <p class="card-desc">Market Research, Campaign Design, and Consumer Behavior Analysis.</p>
+            <p class="card-desc">
+              Market Research, Campaign Design,
+              and Consumer Behavior Analysis.
+            </p>
           </div>
-        </div>
+        </a>
 
-        <div class="card card-4">
+        <!-- OPERATIONS -->
+        <a href="#operations-work" class="card card-4">
           <div class="card-header"></div>
           <div class="card-body">
-            <h3 class="card-title">Operations & Information Technology</h3>
-            <p class="card-desc">Process Optimization, Supply Chain Efficiency, and Digital Transformation.</p>
+            <h3 class="card-title">Operations &amp; Information Technology</h3>
+            <p class="card-desc">
+              Process Optimization, Supply Chain Efficiency,
+              and Digital Transformation.
+            </p>
           </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- FINANCE GALLERY -->
+    <section id="finance-work" class="portfolio-gallery">
+      <a href="#projects" class="back-link">&larr; Back to Projects</a>
+
+      <h2 class="gallery-title">Finance &amp; Valuation</h2>
+
+      <p class="gallery-desc">
+        Financial modeling, valuation, and equity research projects.
+        Select a project below to view its details.
+      </p>
+
+      <div id="finance-list" class="portfolio-list"></div>
+    </section>
+
+    <!-- ANALYTICS GALLERY -->
+    <section id="analytics-work" class="portfolio-gallery">
+      <a href="#projects" class="back-link">&larr; Back to Projects</a>
+
+      <h2 class="gallery-title">Business Analytics</h2>
+
+      <p class="gallery-desc">
+        Data analysis, visualization, and business analytics projects.
+        Select a project below to view its details.
+      </p>
+
+      <div id="analytics-list" class="portfolio-list"></div>
+    </section>
+
+    <!-- MARKETING GALLERY -->
+    <section id="marketing-work" class="portfolio-gallery">
+      <a href="#projects" class="back-link">&larr; Back to Projects</a>
+
+      <h2 class="gallery-title">Marketing Strategy</h2>
+
+      <p class="gallery-desc">
+        Market research, positioning, and marketing strategy projects.
+        Select a project below to view its details.
+      </p>
+
+      <div id="marketing-list" class="portfolio-list"></div>
+    </section>
+
+    <!-- OPERATIONS GALLERY -->
+    <section id="operations-work" class="portfolio-gallery">
+      <a href="#projects" class="back-link">&larr; Back to Projects</a>
+
+      <h2 class="gallery-title">Operations &amp; Information Technology</h2>
+
+      <p class="gallery-desc">
+        Operations management, process improvement,
+        and information technology projects.
+      </p>
+
+      <div id="operations-list" class="portfolio-list"></div>
+    </section>
+
+    <!-- INDIVIDUAL PROJECT VIEWER -->
+    <section id="project-preview" class="portfolio-gallery">
+
+      <a href="#projects" id="project-back" class="back-link">
+        &larr; Back to Project List
+      </a>
+
+      <h2 id="project-title" class="gallery-title"></h2>
+      <p id="project-summary" class="gallery-desc"></p>
+
+      <div class="project-field">
+        <h3>Tools Used</h3>
+        <p id="project-tools"></p>
+      </div>
+
+      <div class="project-field">
+        <h3>My Approach</h3>
+        <p id="project-approach"></p>
+      </div>
+
+      <div class="project-field">
+        <h3>Outcome</h3>
+        <p id="project-outcome"></p>
+      </div>
+
+      <div id="project-images" class="project-preview"></div>
+
+      <p class="preview-notice">
+        This portfolio displays selected public previews.
+        Original working files are not hosted on this website.
+      </p>
+    </section>
+
+    <!-- RESUME VIEWER -->
+    <section id="resume-preview" class="portfolio-gallery">
+      <a href="#about" class="back-link">&larr; Back to Portfolio</a>
+
+      <h2 class="gallery-title">Résumé Overview</h2>
+
+      <p class="gallery-desc">
+        Professional background and education.
+        A complete résumé is available upon request.
+      </p>
+
+      <div class="resume-paper">
+        <h2>Daniel Alvia</h2>
+
+        <p>Rutgers Business School - New Brunswick</p>
+        <p>
+          <a href="mailto:dalvia1259@gmail.com">Email</a> |
+          <a href="https://linkedin.com/in/danielalvia"
+             target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </p>
+
+        <h3>Professional Summary</h3>
+        <p>
+          Business Analytics and Information Technology student
+          developing skills in finance, marketing, analytics,
+          and operations, with an interest in cross-functional
+          business leadership.
+        </p>
+
+        <h3>Education</h3>
+        <p><strong>Rutgers Business School - New Brunswick</strong></p>
+        <p>Business Analytics and Information Technology</p>
+        <p>Expected Graduation: 2027</p>
+
+        <h3>Areas of Focus</h3>
+        <p>
+          Financial Modeling, Business Analytics, Marketing Strategy,
+          Operations, and Information Technology.
+        </p>
+
+        <!-- ADD YOUR ACTUAL RESUME EXPERIENCE HERE -->
+
+        <div style="margin-top:2rem;">
+          <a
+            href="mailto:dalvia1259@gmail.com?subject=Resume%20Request"
+            class="btn-secondary"
+          >
+            Request Full Résumé
+          </a>
         </div>
       </div>
     </section>
 
   </main>
+
+  <script>
+    /*
+      ADD YOUR PORTFOLIO PROJECTS HERE.
+
+      Each pillar has its own list.
+
+      To add a real project, copy this example
+      inside the appropriate list, remove the
+      // comment marks, and replace the text:
+
+      {
+        title: "Project Name",
+        summary: "What the project was about",
+        tools: "Excel, Python, or other tools",
+        approach: "What you did in this project",
+        outcome: "What you accomplished or learned",
+        images: []
+      }
+
+      Images can contain URLs to public,
+      watermarked preview images.
+
+      Keep private documents and original
+      working files out of this public website.
+    */
+
+    const portfolioProjects = {
+
+      finance: [],
+
+      analytics: [],
+
+      marketing: [],
+
+      operations: []
+
+    };
+
+    const categoryNames = [
+      "finance",
+      "analytics",
+      "marketing",
+      "operations"
+    ];
+
+    // Generate project lists automatically
+    categoryNames.forEach(function(category) {
+      const list = document.getElementById(category + "-list");
+      const items = portfolioProjects[category];
+
+      if (items.length === 0) {
+        const message = document.createElement("p");
+        message.className = "empty-message";
+        message.textContent = "Selected projects will appear here soon.";
+        list.appendChild(message);
+      }
+
+      items.forEach(function(project, index) {
+        const link = document.createElement("a");
+
+        link.href = "#project-preview";
+        link.className = "portfolio-item";
+
+        const title = document.createElement("h3");
+        title.textContent = project.title;
+
+        const description = document.createElement("p");
+        description.textContent = project.summary;
+
+        link.appendChild(title);
+        link.appendChild(description);
+
+        link.addEventListener("click", function() {
+          openProject(category, index);
+        });
+
+        list.appendChild(link);
+      });
+    });
+
+    // Display selected project
+    function openProject(category, index) {
+      const project = portfolioProjects[category][index];
+
+      document.getElementById("project-title").textContent =
+        project.title;
+
+      document.getElementById("project-summary").textContent =
+        project.summary;
+
+      document.getElementById("project-tools").textContent =
+        project.tools || "Not listed";
+
+      document.getElementById("project-approach").textContent =
+        project.approach || "Not listed";
+
+      document.getElementById("project-outcome").textContent =
+        project.outcome || "Not listed";
+
+      document.getElementById("project-back").href =
+        "#" + category + "-work";
+
+      const imagesContainer =
+        document.getElementById("project-images");
+
+      imagesContainer.replaceChildren();
+
+      (project.images || []).forEach(function(url, index) {
+        const image = document.createElement("img");
+
+        image.src = url;
+        image.alt = project.title + " preview " + (index + 1);
+        image.loading = "lazy";
+
+        imagesContainer.appendChild(image);
+      });
+    }
+  </script>
 
 </body>
 </html>
